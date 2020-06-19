@@ -25,16 +25,17 @@ var placetobe = /** @class */ (function () {
         arr.push(this);
     }
     placetobe.prototype.displayPlaces = function () {
-        return "<div class=\"col-lg-4 sm-6 md-6 xs-12 mb-0 \">\n        <div class=\"card mb-3\" style=\"width: 18rem; min-height: 353px\">\n        <img src=\"" + this.img + "\" class=\"card-img-top\" alt=\"\">\n        <div class=\"card-body\">\n          <p class=\"card-text\"><span class=\"font-weight-bold\">" + this.name + " </span><hr>\n          <address>\n          <svg class=\"bi bi-geo-alt\" width=\"1.3em\" height=\"1.3em\" viewBox=\"0 0 20 20\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path fill-rule=\"evenodd\" d=\"M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z\"/>\n</svg>\n        " + this.address + "<br>" + this.zipCode + " " + this.city + "</p>\n        </address>\n        </div>\n        </div>\n        </div>";
+        return "<div class=\"col-lg-4 sm-6 md-6 xs-12 mb-0 \">\n             <div class=\"card mb-3\" style=\"width: 18rem; min-height: 353px\">\n              <img src=\"" + this.img + "\" class=\"card-img-top\" alt=\"\">\n              <div class=\"card-body\">\n                 <p class=\"card-text\"><span class=\"font-weight-bold\">" + this.name + " </span>\n                 <hr>\n                <address>\n                <svg class=\"bi bi-geo-alt\" width=\"1.3em\" height=\"1.3em\" viewBox=\"0 0 20 20\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n                <path fill-rule=\"evenodd\" d=\"M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z\"/>\n                </svg>\n                <span style=\"font-size: 14px;\">" + this.zipCode + " " + this.city + ",\n                " + this.address + "</span></p>\n                </address>\n             </div>\n            </div>\n        </div>";
     };
     return placetobe;
 }());
-var kahl = new placetobe('Kahlenberg', 'Vienna', 1190, 'Kahlenbergergasse 5', 'img/Kahlenberg.jpeg');
+var kahl = new placetobe('Kahlenberg', 'Vienna', 1190, 'Kahlenbergerg. 5', 'img/Kahlenberg.jpeg');
 var lobau = new placetobe('Lobau', 'Vienna', 1220, 'Nationalpark Lobau', 'img/lobau.jpg');
 var nasch = new placetobe('Naschmarkt', 'Vienna', 1050, 'Nachmarkt 1', 'img/naschmarkt.jpg');
 for (var i = 0; i < arr.length; i++) {
     document.getElementById('row-places').innerHTML += arr[i].displayPlaces();
 }
+// restaurant class ---------------------------------
 var arrtwo = [];
 var restaurants = /** @class */ (function (_super) {
     __extends(restaurants, _super);
@@ -50,13 +51,44 @@ var restaurants = /** @class */ (function (_super) {
     //     super.displayRestaurants()
     // }
     restaurants.prototype.displayRestaurants = function () {
-        return "<div class=\"col-lg-4 sm-6 md-6 xs-12 mb-0 \">\n        <div class=\"card mb-3\" style=\"width: 18rem; min-height: 353px\">\n        <img src=\"" + this.img + "\" class=\"card-img-top\" alt=\"\">\n        <div class=\"card-body\">\n          <p class=\"card-text\"><span class=\"font-weight-bold\">" + this.name + "</span> " + this.type + "\n          <hr>" + this.address + "\n          <br>" + this.zipCode + " " + this.city + " \n          <br>" + this.telefon + " | " + this.webpage + " \n          </p>\n        </div>\n        </div>\n        </div>";
+        return "<div class=\"col-lg-4 sm-6 md-6 xs-12 mb-0 \">\n        <div class=\"card mb-3\" style=\"width: 18rem; min-height: 353px\">\n        <img src=\"" + this.img + "\" class=\"card-img-top\" alt=\"\">\n        <div class=\"card-body\">\n          <p class=\"card-text\"><span class=\"font-weight-bold\">" + this.name + "</span>  -<span class=\"font-italic font-weight-lighter italic\">" + this.type + "\n          <hr> \n          <address><svg class=\"bi bi-geo-alt\" width=\"1.3em\" height=\"1.3em\" viewBox=\"0 0 20 20\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n          <path fill-rule=\"evenodd\" d=\"M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z\"/>\n        </svg><span style=\"font-size: 14px;\">" + this.zipCode + " " + this.city + ",\n        " + this.address + "</span>\n          <br><span style=\"font-size: 12px;\">" + this.telefon + " | " + this.webpage + "</span>\n          <address>\n          </p>\n        </div>\n        </div>\n        </div>";
     };
     return restaurants;
 }(placetobe));
 var ansari = new restaurants('Ansari', 'Vienna', 1020, 'Praterstraße 15', 'img/ansari.jpeg', '+43 1 276 51 02', 'georgisch', 'cafeansari.at');
-var deli = new restaurants('Deli', 'Vienna', 1040, 'naschmarkt stand 421-436', 'img/deli.jpg', '+43 1 585 08 23', 'orientalisch', 'naschmarkt-deli.at');
-var uic = new restaurants('United in Cycling', 'Vienna', 1220, 'Sonnenallee 35', 'img/uic.jpeg', '0670 6040410', 'Cafe & Kuchen', 'unitedincycling.com');
+var deli = new restaurants('Deli', 'Vienna', 1040, 'Naschmarkt 421', 'img/deli.jpg', '+43 1 585 08 23', 'orientalisch', 'naschmarkt-deli.at');
+var uic = new restaurants('United in Cycling', 'Vienna', 1220, 'Sonnenallee 35', 'img/uic.jpg', '0670 6040410', 'Cafe & Bike', 'unitedincycling.com');
 for (var i = 0; i < arrtwo.length; i++) {
     document.getElementById('row-rest').innerHTML += arrtwo[i].displayRestaurants();
+}
+// class events --------------------------------------
+// name: string;
+// city: string;
+// zipCode: number;
+// address: string;
+// img ?;
+var arrthree = [];
+var events = /** @class */ (function (_super) {
+    __extends(events, _super);
+    function events(a, b, c, d, e, i, j, k) {
+        var _this = _super.call(this, a, b, c, d, e) || this;
+        _this.eventName = i;
+        _this.eventDate = j;
+        _this.eventTime = k;
+        arrthree.push(_this);
+        return _this;
+    }
+    // displayRestaurants() {
+    //     super.displayRestaurants()
+    // }
+    events.prototype.displayEvents = function () {
+        return "<div class=\"col-lg-4 sm-6 md-6 xs-12 mb-0 \">\n        <div class=\"card mb-3\" style=\"width: 18rem; min-height: 353px\">\n        <img src=\"" + this.img + "\" class=\"card-img-top\" alt=\"\">\n        <div class=\"card-body\">\n          <p class=\"card-text\"><span class=\"font-weight-bold\">" + this.name + "</span>\n          <hr> \n          <address><svg class=\"bi bi-geo-alt\" width=\"1.3em\" height=\"1.3em\" viewBox=\"0 0 20 20\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n          <path fill-rule=\"evenodd\" d=\"M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z\"/>\n        </svg><span style=\"font-size: 14px;\">" + this.zipCode + " " + this.city + ",\n          " + this.address + "</span>\n          <br><span style=\"font-size: 12px;\">" + this.eventDate + " | " + this.eventTime + "</span>\n          <address>\n          </p>\n        </div>\n        </div>\n        </div>";
+    };
+    return events;
+}(placetobe));
+var camo = new events('Konzerthaus', 'Vienna', 1010, 'Kohlmarkt', 'img/camo.jpg', 'Camo&Krooked', 'Datum', 'Zeit');
+var event2 = new events('Event2', 'Vienna', 1040, 'Naschmarkt 421', 'img/deli.jpg', 'Konzert2', 'Datum2', 'Zeit2');
+var event3 = new events('Event3', 'Vienna', 1220, 'Sonnenallee 35', 'img/uic.jpg', 'Konzert3', 'Datum3', 'Zeit3');
+for (var i = 0; i < arrthree.length; i++) {
+    document.getElementById('row-events').innerHTML += arrthree[i].displayEvents();
 }
