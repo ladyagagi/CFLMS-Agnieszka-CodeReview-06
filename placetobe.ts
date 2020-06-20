@@ -26,7 +26,7 @@ class placetobe implements placetobeInVienna{
         arr.push(this);
     }
     displayPlaces() {
-        return `<div class="col mx-auto col-lg-3 md-4 sm-12 xs-12 d-flex flex-wrap justify-sm-content-center">
+        return `<div class="col mx-auto col-lg-3 md-4 sm-12 xs-12 d-flex flex-wrap">
              <div class="card mb-3" style="width: 18rem;">
               <img src="${this.img}" class="card-img-top d-none d-md-block" alt="img">
               <div class="card-body">
@@ -62,12 +62,14 @@ class restaurants extends placetobe {
     telefon:string;
     type: string;
     webpage:string;
+    webpageShort:string;
 
-    constructor(a,b,c,d,e,f,g,h) {
+    constructor(a,b,c,d,e,f,g,h,i) {
         super(a,b,c,d,e);
-        this.telefon = f;
+         this.telefon = f;
         this.type = g;
-        this.webpage= h;
+        this.webpageShort = h
+        this.webpage= i;
         arrtwo.push(this);
     }
     // displayRestaurants() {
@@ -84,7 +86,7 @@ class restaurants extends placetobe {
           <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
         </svg><span style="font-size: 1rem;">${this.zipCode} ${this.city},
         ${this.address}</span>
-          <br><i class="fa fa-phone aria-hidden="true"></i><span style="font-size: 12px;"> ${this.telefon} | ${this.webpage}</span>
+          <br><i class="fa fa-phone aria-hidden="true"></i><span style="font-size: 12px;"> ${this.telefon} | <a href="${this.webpage}" target="_blank">${this.webpageShort}</a></span>
           <address>
           </p>
         </div>
@@ -93,10 +95,10 @@ class restaurants extends placetobe {
 }
 }
 
-let ansari = new restaurants ('Ansari', 'Vienna', 1020, 'Praterstraße 15', 'img/ansari.jpeg','+43 1 276 51 02','georgisch' ,'cafeansari.at' );
-let deli = new restaurants ('Deli', 'Vienna', 1040, 'Naschmarkt 421', 'img/deli.jpg','+43 1 585 08 23','orientalisch', 'naschmarkt-deli.at' );
-let uic = new restaurants ('United in Cycling', 'Vienna', 1220, 'Sonnenallee 35', 'img/uic.jpg','0670 6040410','Cafe & Bike', 'unitedincycling.com' );
-let uic = new restaurants ('Palmenhaus', 'Vienna', 1010, ' Burggarten 1', 'img/palmenhaus.jpg','+43 1 533 10 33','Cafe', 'palmenhaus.at' );
+let ansari = new restaurants ('Ansari', 'Vienna', 1020, 'Praterstraße 15', 'img/ansari.jpeg','+43 1 276 51 02','georgisch' ,'cafeansari.at', 'https://cafeansari.at/de/' );
+let deli = new restaurants ('Deli', 'Vienna', 1040, 'Naschmarkt 421', 'img/deli.jpg','+43 1 585 08 23','orientalisch', 'naschmarkt-deli.at', 'https://www.naschmarkt-deli.at/' );
+let uic = new restaurants ('United in Cycling', 'Vienna', 1220, 'Sonnenallee 35', 'img/uic.jpg','0670 6040410','Cafe & Bike', 'unitedincycling.com', 'https://unitedincycling.com/' );
+let palme = new restaurants ('Palmenhaus', 'Vienna', 1010, ' Burggarten 1', 'img/palmenhaus.jpg','+43 1 533 10 33','Cafe', 'palmenhaus.at', 'https://www.palmenhaus.at/' );
 
 for (let i=0; i<arrtwo.length; i++) {
     document.getElementById('row-rest').innerHTML += arrtwo[i].displayRestaurants();
